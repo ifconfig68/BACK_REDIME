@@ -1,12 +1,20 @@
-// config/db.js
-const { Pool } = require('pg');
+const pkg = require('pg');
+const { Client } = pkg;
 
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'tu_db',
-  password: '123456',
-  port: 5432,
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
 });
 
-module.exports = pool;
+const connectDB = async () => {
+  try {
+    await client.connect();
+    console.log('Conectado a PostgreSQL con éxito');
+  } catch (error) {
+    console.error('Error conectando a PostgreSQL:', error);
+  }
+};
+
+module.exports = {
+  client,
+  connectDB
+};

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "redime",
   "main": "app.js",
+  
   "dependencies": {
     "bcrypt": "^6.0.0",
     "buffer-equal-constant-time": "^1.0.1",
