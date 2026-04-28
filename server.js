@@ -2,6 +2,7 @@
 require('dotenv').config();
 const {connectDB} = require ('./src/config/db'); 
 const { initContactTable } = require('./src/config/initTables');
+const { initUserTable } = require('./src/config/initTables');
 const app = require( './app');
 
 
@@ -18,6 +19,7 @@ const startServer = async () => {
   try {
     await connectDB();
     await initContactTable();
+    await initUserTable();
 
     app.listen(PORT, () => {
       console.log(`Servidor corriendo en puerto ${PORT}`);

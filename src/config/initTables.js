@@ -19,6 +19,30 @@ const initContactTable = async () => {
   }
 };
 
+const initUserTable = async () => {
+  try {
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS users (
+        id SERIAL PRIMARY KEY,
+        nombre VARCHAR(255) NOT NULL,
+        apellido VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        password VARCHAR(255) NOT NULL,
+        cedula VARCHAR(255) NOT NULL,        
+        fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );
+    `);
+
+    console.log("Tabla 'user' lista");  
+  } catch (err) {
+    console.error("Error creando tabla 'users':", err);
+  }
+};
+
+
+
 module.exports = {
-  initContactTable
+  initContactTable,
+  initUserTable
+
 };
