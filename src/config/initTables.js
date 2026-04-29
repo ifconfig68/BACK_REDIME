@@ -26,9 +26,10 @@ const initUserTable = async () => {
         id SERIAL PRIMARY KEY,
         nombre VARCHAR(255) NOT NULL,
         apellido VARCHAR(255) NOT NULL,
-        email VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL UNIQUE,
         password VARCHAR(255) NOT NULL,
-        cedula VARCHAR(255) NOT NULL,        
+        cedula VARCHAR(255) NOT NULL,
+        celular VARCHAR(255) NOT NULL,
         fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
     `);
