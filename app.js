@@ -6,6 +6,7 @@ const authRoutes = require('./src/routes/authRoutes');
 const userRoutes = require('./src/routes/userRoutes');
 const dispositivoRoutes = require('./src/routes/dispositivoRoutes');
 const solicitudRoutes = require('./src/routes/solicitudRoutes');
+const puntoRoutes = require('./src/routes/puntoRoutes');
 
 
 const app = express();
@@ -17,5 +18,6 @@ app.use('/api/auth', authRoutes);
 app.use('/api/usuarios', userRoutes);
 app.use('/api/dispositivos', dispositivoRoutes);
 app.use('/api/solicitudes', solicitudRoutes);
+app.use('/api/puntos', puntoRoutes);
 
 module.exports = app;
