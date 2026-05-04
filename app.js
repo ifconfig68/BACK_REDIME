@@ -5,6 +5,8 @@ const cors = require('cors');
 const authRoutes = require('./src/routes/authRoutes');
 const userRoutes = require('./src/routes/userRoutes');
 const dispositivoRoutes = require('./src/routes/dispositivoRoutes');
+const solicitudRoutes = require('./src/routes/solicitudRoutes');
+
 
 const app = express();
 
@@ -14,5 +16,6 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/usuarios', userRoutes);
 app.use('/api/dispositivos', dispositivoRoutes);
+app.use('/api/solicitudes', solicitudRoutes);
 
 module.exports = app;
