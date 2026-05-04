@@ -9,6 +9,7 @@ const solicitudRoutes = require('./src/routes/solicitudRoutes');
 const puntoRoutes = require('./src/routes/puntoRoutes');
 const trackingRoutes = require('./src/routes/trackingRoutes');
 const historiaRoutes = require('./src/routes/historiaRoutes');
+const preferenciaRoutes = require('./src/routes/preferenciaRoutes');
 
 
 const app = express();
@@ -23,5 +24,6 @@ app.use('/api/solicitudes', solicitudRoutes);
 app.use('/api/puntos', puntoRoutes);
 app.use('/api/tracking', trackingRoutes);
 app.use('/api/historias', historiaRoutes);
+app.use('/api/preferencias', preferenciaRoutes);
 
 module.exports = app;
