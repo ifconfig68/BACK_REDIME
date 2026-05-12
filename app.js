@@ -10,20 +10,23 @@ const puntoRoutes = require('./src/routes/puntoRoutes');
 const trackingRoutes = require('./src/routes/trackingRoutes');
 const historiaRoutes = require('./src/routes/historiaRoutes');
 const preferenciaRoutes = require('./src/routes/preferenciaRoutes');
-
+const { verifyToken } = require('./src/middlewares/authMiddleware');
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
+// Rutas públicas
 app.use('/api/auth', authRoutes);
-app.use('/api/usuarios', userRoutes);
-app.use('/api/dispositivos', dispositivoRoutes);
-app.use('/api/solicitudes', solicitudRoutes);
 app.use('/api/puntos', puntoRoutes);
-app.use('/api/tracking', trackingRoutes);
 app.use('/api/historias', historiaRoutes);
-app.use('/api/preferencias', preferenciaRoutes);
+
+// Rutas protegidas
+app.use('/api/usuarios', verifyToken, userRoutes);
+app.use('/api/dispositivos', verifyToken, dispositivoRoutes);
+app.use('/api/solicitudes', verifyToken, solicitudRoutes);
+app.use('/api/tracking', verifyToken, trackingRoutes);
+app.use('/api/preferencias', verifyToken, preferenciaRoutes);
 
 module.exports = app;
